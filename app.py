@@ -134,7 +134,7 @@ st.write("Get book recommendations based on your description!")
 # -----------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("/content/drive/MyDrive/Book_Recommendation_System_2/books.csv")   # <-- change to your file
+    df = pd.read_csv("books.csv")   # <-- change to your file
     df['tags'] = df['tags'].fillna("").str.lower()
     return df
 
