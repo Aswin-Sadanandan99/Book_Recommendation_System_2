@@ -195,7 +195,7 @@ def recommend_books_by_description(user_description, df, tfidf, tfidf_matrix):
     user_vec = tfidf.transform([user_description])
     similarity_scores = cosine_similarity(user_vec, tfidf_matrix)[0]
     
-    top_indices = similarity_scores.argsort()
+    top_indices = similarity_scores.argsort()[::-1]
     
     recommendation = df.iloc[top_indices][['isbn13', 'title','thumbnail', 'authors', 'average_rating','simple_categories',
     'anger','disgust','fear', 'joy', 'neutral', 'sadness', 'surprise']]
